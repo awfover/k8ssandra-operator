@@ -276,6 +276,8 @@ type CassandraClusterTemplate struct {
 	// Client encryption stores which are used by Cassandra and Reaper.
 	// +optional
 	ClientEncryptionStores *encryption.Stores `json:"clientEncryptionStores,omitempty"`
+
+	AdditionalLabels map[string]string `json:"additionalLabels,omitempty"`
 }
 
 // +kubebuilder:pruning:PreserveUnknownFields

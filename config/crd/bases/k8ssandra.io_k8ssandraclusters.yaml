@@ -55,6 +55,10 @@ spec:
                   cluster where each DC should be deployed, node affinity (via racks),
                   individual C* node settings, JVM settings, and more.
                 properties:
+                  additionalLabels:
+                    additionalProperties:
+                      type: string
+                    type: object
                   additionalSeeds:
                     description: AdditionalSeeds specifies Cassandra node IPs for
                       an existing datacenter. This is primarily intended for migrations

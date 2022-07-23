@@ -115,6 +115,7 @@ type DatacenterConfig struct {
 	ClientTruststorePassword string
 	ServerKeystorePassword   string
 	ServerTruststorePassword string
+	AdditionalLabels         map[string]string
 }
 
 const (
@@ -169,6 +170,7 @@ func NewDatacenter(klusterKey types.NamespacedName, template *DatacenterConfig) 
 			Users:               template.Users,
 			Networking:          template.Networking,
 			PodTemplateSpec:     template.PodTemplateSpec,
+			AdditionalLabels:    template.AdditionalLabels,
 		},
 	}
 
@@ -344,6 +346,7 @@ func Coalesce(clusterName string, clusterTemplate *api.CassandraClusterTemplate,
 	dcConfig.ServerEncryptionStores = clusterTemplate.ServerEncryptionStores
 	dcConfig.ClientEncryptionStores = clusterTemplate.ClientEncryptionStores
 	dcConfig.AdditionalSeeds = clusterTemplate.AdditionalSeeds
+	dcConfig.AdditionalLabels = clusterTemplate.AdditionalLabels
 
 	return dcConfig
 }
